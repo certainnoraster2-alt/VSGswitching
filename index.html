@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style id="lumi-runtime">
+/* luminous.css */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:ital,wght@0,300..700;1,300..700&family=Google+Sans+Code:ital,wght,MONO@0,300..700,0..1;1,300..700,0..1&display=swap');
+
+/* ============================================================
+ * 2. LIGHT TOKENS (:root)
+ * ============================================================ */
+:root {
+  --body-bg: transparent;
+  --ff-sans: 'Google Sans Flex', 'Google Sans Text', 'Google Sans', sans-serif;
+  --ff-mono: 'Google Sans Code', 'Google Sans Mono', monospace;
+
+  --lumi-sys-spacing--xxs: 2px;
+  --lumi-sys-spacing--xs: 4px;
+  --lumi-sys-spacing--s: 8px;
+  --lumi-sys-spacing--m: 12px;
+  --lumi-sys-spacing--l: 16px;
+  --lumi-sys-spacing--xl: 20px;
+  --lumi-sys-spacing--xxl: 24px;
+  --lumi-sys-spacing--3xl: 28px;
+  --lumi-sys-spacing--4xl: 36px;
+
+  --lumi-sys-shape--none: 0px;
+  --lumi-sys-shape--extra-small: 4px;
+  --lumi-sys-shape--small: 8px;
+  --lumi-sys-shape--medium: 12px;
+  --lumi-sys-shape--large: 16px;
+  --lumi-sys-shape--large-increased: 20px;
+  --lumi-sys-shape--large-max: 24px;
+  --lumi-sys-shape--xl: 28px;
+  --lumi-sys-shape--xl-increased: 32px;
+  --lumi-sys-shape--xl-max: 40px;
+  --lumi-sys-shape--xxl: 48px;
+  --lumi-sys-shape--xxl-increased: 56px;
+  --lumi-sys-shape--full: 999px;
+
+  --lumi-sys-elevation--level1: 0 0 20px 0 rgba(0, 0, 0, 0.04);
+  --lumi-sys-elevation--level2: 0 0 20px 0 rgba(0, 0, 0, 0.11);
+
+  --lumi-sys-color--surface: #fdfcfc;
+  --lumi-sys-color--surface-dim: #f2f0f0;
+  --lumi-sys-color--surface-bright: #ffffff;
+  --lumi-sys-color--surface-background: #fdfcfc;
+  --lumi-sys-color--surface-accent: #9dd2ff;
+  --lumi-sys-color--surface-container: #f2f0f0;
+  --lumi-sys-color--surface-container-high: #e6e6e6;
+  --lumi-sys-color--surface-translucent: rgba(255, 255, 255, 0.88);
+  --lumi-sys-color--on-surface: #000000;
+  --lumi-sys-color--on-surface-default: #000000;
+  --lumi-sys-color--on-surface-variant: rgba(0, 0, 0, 0.55);
+  --lumi-sys-color--on-surface-de-emphasis: rgba(0, 0, 0, 0.55);
+  --lumi-sys-color--on-surface-low: rgba(0, 0, 0, 0.08);
+  --lumi-sys-color--positive: #008052;
+  --lumi-sys-color--positive-container: #daf9d4;
+  --lumi-sys-color--on-positive-container: #009954;
+  --lumi-sys-color--error: #de2d29;
+  --lumi-sys-color--error-container: #ffdeec;
+  --lumi-sys-color--on-error-container: #de2d29;
+  --lumi-sys-color--accent: #9dd2ff;
+  --lumi-sys-color--accent-container: #dcf1ff;
+  --lumi-sys-color--accent-fixed: #3186ff;
+  --lumi-sys-color--primary: #3186ff;
+  --lumi-sys-color--on-primary: #ffffff;
+  --lumi-sys-color--black: #000000;
+  --lumi-sys-color--white: #ffffff;
+  --lumi-sys-color--outline: #727676;
+  --lumi-sys-color--stroke-default: #e3e3e3;
+
+  --lumi-sys-opacity-state--hover: 0.08;
+  --lumi-sys-opacity-state--focus: 0.08;
+  --lumi-sys-opacity-state--pressed: 0.12;
+  --lumi-sys-opacity-state--disabled: 0.12;
+  --lumi-sys-opacity-state--disabled-label: 0.38;
+
+  --lumi-sys-color--code-background: #000000;
+  --lumi-sys-color--code-primary-text: #ffffff;
+  --lumi-sys-color--code-blue-text: #4fa0ff;
+  --lumi-sys-color--code-green-text: #60d673;
+  --lumi-sys-color--code-grey-text: #808080;
+  --lumi-sys-color--code-pink-text: #ff96da;
+  --lumi-sys-color--code-purple-text: #969dff;
+  --lumi-sys-color--code-red-text: #ff5a59;
+  --lumi-sys-color--code-yellow-text: #ffdb0f;
+
+  --lumi-sys-color--chart-series-1: #2575fc;
+  --lumi-sys-color--chart-series-2: #5b6e9e;
+  --lumi-sys-color--chart-series-3: #228a49;
+  --lumi-sys-color--chart-series-4: #62991b;
+  --lumi-sys-color--chart-series-5: #1e564d;
+  --lumi-sys-color--chart-series-6: #526a45;
+  --lumi-sys-color--chart-series-7: #2780c4;
+  --lumi-sys-color--chart-series-8: #997112;
+  --lumi-sys-color--chart-series-9: #705ec2;
+  --lumi-sys-color--chart-series-10: #c84288;
+}
+
+/* ============================================================
+ * 3. DARK TOKENS
+ * ============================================================ */
+:root[data-theme="dark"],
+body.dark-mode,
+:root[data-theme="dark"] body {
+  --body-bg: #0f0f0f;
+  --lumi-sys-elevation--level1: 0 0 20px 0 rgba(0, 0, 0, 0.28);
+  --lumi-sys-elevation--level2: 0 0 20px 0 rgba(0, 0, 0, 0.40);
+
+  --lumi-sys-color--surface: #0f0f0f;
+  --lumi-sys-color--surface-dim: #141414;
+  --lumi-sys-color--surface-bright: #1c1c1c;
+  --lumi-sys-color--surface-background: #0f0f0f;
+  --lumi-sys-color--surface-accent: #14204f;
+  --lumi-sys-color--surface-container: #141414;
+  --lumi-sys-color--surface-container-high: #1c1c1c;
+  --lumi-sys-color--surface-translucent: rgba(24, 24, 27, 0.88);
+  --lumi-sys-color--on-surface: #e0e0e0;
+  --lumi-sys-color--on-surface-default: #e0e0e0;
+  --lumi-sys-color--on-surface-variant: rgba(255, 255, 255, 0.55);
+  --lumi-sys-color--on-surface-de-emphasis: rgba(255, 255, 255, 0.55);
+  --lumi-sys-color--on-surface-low: rgba(255, 255, 255, 0.12);
+  --lumi-sys-color--positive: #0ebc5f;
+  --lumi-sys-color--positive-container: #002220;
+  --lumi-sys-color--on-positive-container: #0ebc5f;
+  --lumi-sys-color--error: #ff4c45;
+  --lumi-sys-color--error-container: #3c0202;
+  --lumi-sys-color--on-error-container: #ff4c45;
+  --lumi-sys-color--accent: #1f3b9b;
+  --lumi-sys-color--accent-container: #192967;
+  --lumi-sys-color--accent-fixed: #3186ff;
+  --lumi-sys-color--primary: #9dd2ff;
+  --lumi-sys-color--on-primary: #192967;
+  --lumi-sys-color--black: #000000;
+  --lumi-sys-color--white: #ffffff;
+  --lumi-sys-color--outline: #9a9b9c;
+  --lumi-sys-color--stroke-default: #2d2f38;
+
+  --lumi-sys-color--code-background: #141414;
+  --lumi-sys-color--code-primary-text: #ffffff;
+  --lumi-sys-color--code-blue-text: #4fa0ff;
+  --lumi-sys-color--code-green-text: #60d673;
+  --lumi-sys-color--code-grey-text: #808080;
+  --lumi-sys-color--code-pink-text: #ff96da;
+  --lumi-sys-color--code-purple-text: #969dff;
+  --lumi-sys-color--code-red-text: #ff5a59;
+  --lumi-sys-color--code-yellow-text: #ffdb0f;
+
+  --lumi-sys-color--chart-series-1: #9dd2ff;
+  --lumi-sys-color--chart-series-2: #96a7d6;
+  --lumi-sys-color--chart-series-3: #50e389;
+  --lumi-sys-color--chart-series-4: #c8f585;
+  --lumi-sys-color--chart-series-5: #f5f2e6;
+  --lumi-sys-color--chart-series-6: #dcd8c0;
+  --lumi-sys-color--chart-series-7: #82c7ff;
+  --lumi-sys-color--chart-series-8: #f5d77f;
+  --lumi-sys-color--chart-series-9: #d9ceff;
+  --lumi-sys-color--chart-series-10: #ffa6d7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --body-bg: #0f0f0f;
+    --lumi-sys-elevation--level1: 0 0 20px 0 rgba(0, 0, 0, 0.28);
+    --lumi-sys-elevation--level2: 0 0 20px 0 rgba(0, 0, 0, 0.40);
+
+    --lumi-sys-color--surface: #0f0f0f;
+    --lumi-sys-color--surface-dim: #141414;
+    --lumi-sys-color--surface-bright: #1c1c1c;
+    --lumi-sys-color--surface-background: #0f0f0f;
+    --lumi-sys-color--surface-accent: #14204f;
+    --lumi-sys-color--surface-container: #141414;
+    --lumi-sys-color--surface-container-high: #1c1c1c;
+    --lumi-sys-color--surface-translucent: rgba(24, 24, 27, 0.88);
+    --lumi-sys-color--on-surface: #e0e0e0;
+    --lumi-sys-color--on-surface-default: #e0e0e0;
+    --lumi-sys-color--on-surface-variant: rgba(255, 255, 255, 0.55);
+    --lumi-sys-color--on-surface-de-emphasis: rgba(255, 255, 255, 0.55);
+    --lumi-sys-color--on-surface-low: rgba(255, 255, 255, 0.12);
+    --lumi-sys-color--positive: #0ebc5f;
+    --lumi-sys-color--positive-container: #002220;
+    --lumi-sys-color--on-positive-container: #0ebc5f;
+    --lumi-sys-color--error: #ff4c45;
+    --lumi-sys-color--error-container: #3c0202;
+    --lumi-sys-color--on-error-container: #ff4c45;
+    --lumi-sys-color--accent: #1f3b9b;
+    --lumi-sys-color--accent-container: #192967;
+    --lumi-sys-color--accent-fixed: #3186ff;
+    --lumi-sys-color--primary: #9dd2ff;
+    --lumi-sys-color--on-primary: #192967;
+    --lumi-sys-color--black: #000000;
+    --lumi-sys-color--white: #ffffff;
+    --lumi-sys-color--outline: #9a9b9c;
+    --lumi-sys-color--stroke-default: #2d2f38;
+  }
+}
+
+/* ============================================================
+ * 4. SHORT DIAGRAM / CHART ALIASES
+ * ============================================================ */
+:root {
+  --surface: var(--lumi-sys-color--surface, #fdfcfc);
+  --surface-dim: var(--lumi-sys-color--surface-dim, #f2f0f0);
+  --surface-bright: var(--lumi-sys-color--surface-bright, #ffffff);
+  --surface-container: var(--lumi-sys-color--surface-container, #f2f0f0);
+  --surface-container-high: var(--lumi-sys-color--surface-container-high, #e6e6e6);
+  --surface-container-lowest: var(--lumi-sys-color--surface, #ffffff);
+  --surface-accent: var(--lumi-sys-color--surface-accent, #9dd2ff);
+  --surface-translucent: var(--lumi-sys-color--surface-translucent, rgba(255, 255, 255, 0.88));
+  --surface-glass: var(--lumi-sys-color--surface-translucent, rgba(255, 255, 255, 0.88));
+  --on-surface: var(--lumi-sys-color--on-surface, #000000);
+  --on-surface-variant: var(--lumi-sys-color--on-surface-variant, rgba(0, 0, 0, 0.55));
+  --on-surface-low: var(--lumi-sys-color--on-surface-low, rgba(0, 0, 0, 0.08));
+  --primary: var(--lumi-sys-color--primary, #3186ff);
+  --primary-container: var(--lumi-sys-color--accent-container, #dcf1ff);
+  --accent: var(--lumi-sys-color--accent, #9dd2ff);
+  --accent-container: var(--lumi-sys-color--accent-container, #dcf1ff);
+  --accent-fixed: var(--lumi-sys-color--accent-fixed, #3186ff);
+  --positive: var(--lumi-sys-color--positive, #008052);
+  --positive-container: var(--lumi-sys-color--positive-container, #daf9d4);
+  --error: var(--lumi-sys-color--error, #de2d29);
+  --error-container: var(--lumi-sys-color--error-container, #ffdeec);
+  --outline: var(--lumi-sys-color--outline, #727676);
+  --stroke-default: var(--lumi-sys-color--stroke-default, #e3e3e3);
+  --spacing-xs: var(--lumi-sys-spacing--xs, 4px);
+  --spacing-s: var(--lumi-sys-spacing--s, 8px);
+  --spacing-m: var(--lumi-sys-spacing--m, 12px);
+  --spacing-l: var(--lumi-sys-spacing--l, 16px);
+  --spacing-xl: var(--lumi-sys-spacing--xl, 20px);
+  --r-s: var(--lumi-sys-shape--small, 8px);
+  --r-m: var(--lumi-sys-shape--medium, 12px);
+  --r-l: var(--lumi-sys-shape--large, 16px);
+  --r-full: var(--lumi-sys-shape--full, 999px);
+}
+
+/* ============================================================
+ * 5. IN-SCOPE PRE-BAKED COMPONENT CLASSES
+ * ============================================================ */
+html, body {
+  background: var(--body-bg, var(--surface)) !important;
+  color: var(--on-surface) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+:root { --lumi-scrollbar-thumb: rgba(0, 0, 0, 0.20); }
+:root[data-theme="dark"], body.dark-mode { --lumi-scrollbar-thumb: rgba(255, 255, 255, 0.20); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --lumi-scrollbar-thumb: rgba(255, 255, 255, 0.20); }
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lumi-scrollbar-thumb) transparent;
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background-color: var(--lumi-scrollbar-thumb);
+  border-radius: var(--lumi-sys-shape--full, 999px);
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lumi-sys-spacing--xs, 6px);
+  min-height: 36px;
+  padding: 6px 16px;
+  font-family: var(--ff-sans, 'Google Sans Flex', 'Google Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--on-surface, #000000);
+  background-color: var(--surface-bright, #ffffff);
+  border: 1px solid var(--stroke-default, #e3e3e3);
+  border-radius: var(--lumi-sys-shape--full, 999px);
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+button:hover {
+  background-color: var(--surface-container-high, #e6e6e6);
+}
+button.active, button.is-active, button.selected, button.is-selected, button[aria-pressed="true"], button[aria-selected="true"] {
+  background-color: var(--accent-container, #dcf1ff);
+  color: var(--accent-fixed, #3186ff);
+  border-color: transparent;
+}
+
+.lumi-btn, [class^="lumi-btn-"], [class*=" lumi-btn-"] { display: inline-flex; align-items: center; justify-content: center; gap: var(--lumi-sys-spacing--s, 8px); min-height: 40px; padding: 0px 20px; font-family: var(--ff-sans, 'Google Sans Flex', 'Google Sans', sans-serif); font-size: 14px; font-weight: 500; line-height: 20px; border-radius: var(--lumi-sys-shape--full, 999px); border: 1px solid var(--lumi-sys-color--stroke-default, #e3e3e3); cursor: pointer; user-select: none; transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s; text-decoration: none; box-sizing: border-box; white-space: nowrap; }
+.lumi-btn:active, .lumi-btn.is-pressed, [class^="lumi-btn-"]:active, [class*=" lumi-btn-"]:active { transform: scale(0.98); }
+.lumi-btn--tonal, .lumi-btn-tonal, .lumi-btn--secondary, .lumi-btn-secondary, [class^="lumi-btn-"], [class*=" lumi-btn-"] { background-color: var(--lumi-sys-color--surface-bright, #ffffff); color: var(--lumi-sys-color--on-surface-default, #000000); }
+.lumi-btn--tonal:hover, .lumi-btn-tonal:hover, .lumi-btn--secondary:hover, .lumi-btn-secondary:hover, [class^="lumi-btn-"]:hover, [class*=" lumi-btn-"]:hover { background-color: var(--lumi-sys-color--surface-container-high, #e6e6e6); }
+.lumi-btn--accent, .lumi-btn-accent, .lumi-btn--primary, .lumi-btn-primary { background-color: var(--lumi-sys-color--accent, #9dd2ff); color: var(--lumi-sys-color--on-surface-default, #000000); border-color: transparent; }
+.lumi-btn--accent:hover, .lumi-btn-accent:hover, .lumi-btn--primary:hover, .lumi-btn-primary:hover { background-color: var(--lumi-sys-color--accent-container, #dcf1ff); }
+.lumi-btn--small, .lumi-btn-small { min-height: 34px; padding: 0px 14px; font-size: 13px; line-height: 18px; gap: var(--lumi-sys-spacing--xs, 4px); }
+.lumi-btn--xsmall, .lumi-btn-xsmall { min-height: 26px; padding: 0px 10px; font-size: 12px; line-height: 16px; gap: 4px; }
+.lumi-btn.is-selected, .lumi-btn.selected, .lumi-btn.is-active, .lumi-btn.active { background-color: var(--lumi-sys-color--accent-container, #dcf1ff); color: var(--lumi-sys-color--on-surface-default, #000000); border-color: transparent; }
+
+.lumi-headline-m { font-family: var(--ff-sans, 'Google Sans Flex', sans-serif); font-size: clamp(18px, 2.5vw, 22px); line-height: 1.25; font-weight: 450; }
+.lumi-body-m { font-family: var(--ff-sans, 'Google Sans Flex', sans-serif); font-size: 14px; line-height: 19px; font-weight: 400; }
+.lumi-body-m-emphasized { font-family: var(--ff-sans, 'Google Sans Flex', sans-serif); font-size: 14px; line-height: 19px; font-weight: 540; font-variant-numeric: tabular-nums; }
+.lumi-body-s { font-family: var(--ff-sans, 'Google Sans Flex', sans-serif); font-size: 12.5px; line-height: 16px; font-weight: 400; }
+
+svg text { stroke: none; paint-order: fill; }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trypanosoma VSG Switching Mechanisms</title>
+  <style>
+    /* ============================================================
+     * VIEWPORT-FIT LAYOUT FIXES
+     * Ensures the entire widget scales smoothly inside 100dvh
+     * without clipping on short windows or standalone browser tabs.
+     * ============================================================ */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100dvh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-family: var(--ff-sans);
+      background: var(--surface);
+      color: var(--on-surface);
+      box-sizing: border-box;
+    }
+
+    .widget-container {
+      width: 100% !important;
+      max-width: 1100px !important;
+      height: 100%;
+      max-height: 100dvh;
+      margin: 0 auto;
+      padding: var(--spacing-m) !important;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-s);
+    }
+
+    /* Header styling */
+    .header-card {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .header-title {
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    .header-subtitle {
+      margin: 0;
+      color: var(--on-surface-variant);
+    }
+
+    /* Tabs & Controls */
+    .mode-tab-bar {
+      flex-shrink: 0;
+      display: flex;
+      gap: var(--spacing-xs);
+      flex-wrap: wrap;
+    }
+
+    .stepper-deck {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface-dim);
+      padding: 6px var(--spacing-m);
+      border-radius: var(--r-m);
+      gap: var(--spacing-s);
+      flex-wrap: wrap;
+    }
+
+    .step-badges {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      flex-wrap: wrap;
+    }
+
+    .step-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--r-full);
+      background: var(--surface-bright);
+      color: var(--on-surface-variant);
+      font-size: 12px;
+      font-family: var(--ff-mono);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .step-badge.is-active {
+      background: var(--accent-container);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Interactive diagram viewport - Flexes dynamically to fit remaining window height */
+    .diagram-panel {
+      flex: 1 1 0;
+      min-height: 180px;
+      display: flex;
+      gap: var(--spacing-m);
+      align-items: stretch;
+    }
+
+    .svg-viewport {
+      flex: 1 1 65%;
+      min-width: 0;
+      min-height: 0;
+      background: var(--surface-bright);
+      border: 1px solid var(--stroke-default);
+      border-radius: var(--r-m);
+      padding: var(--spacing-s);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    #genomic-svg {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      display: block;
+    }
+
+    .parasite-viewport {
+      flex: 0 0 185px;
+      min-height: 0;
+      background: var(--surface-bright);
+      border: 1px solid var(--stroke-default);
+      border-radius: var(--r-m);
+      padding: var(--spacing-s);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 6px;
+      box-sizing: border-box;
+    }
+
+    #parasite-svg {
+      width: auto;
+      height: 100%;
+      max-height: 135px;
+      min-height: 75px;
+      display: block;
+    }
+
+    /* Callout & Summary */
+    .summary-callout {
+      flex-shrink: 0;
+      background: var(--surface-dim);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--r-s) var(--r-s) 0;
+      padding: var(--spacing-s) var(--spacing-m);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .takeaway-title {
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .takeaway-body {
+      margin: 0;
+    }
+
+    /* Responsive adjustments for narrow or very short viewports */
+    @media (max-width: 620px) {
+      html, body {
+        height: auto;
+        min-height: 100dvh;
+      }
+      .widget-container {
+        height: auto;
+        max-height: none;
+      }
+      .diagram-panel {
+        flex-direction: column;
+        flex: none;
+      }
+      .svg-viewport {
+        min-height: 220px;
+      }
+      .parasite-viewport {
+        flex: none;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: var(--spacing-s) var(--spacing-m);
+      }
+      #parasite-svg {
+        height: 90px;
+      }
+    }
+
+    @media (max-height: 500px) {
+      html, body {
+        height: auto;
+      }
+      .widget-container {
+        height: auto;
+        max-height: none;
+      }
+      .diagram-panel {
+        min-height: 220px;
+      }
+    }
+
+    /* Dynamic SVG animation styles */
+    .dna-track {
+      stroke: var(--outline);
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .gene-rect {
+      transition: transform 0.4s ease, opacity 0.4s ease, fill 0.3s ease;
+      cursor: pointer;
+    }
+
+    .promoter-flag {
+      transition: fill 0.3s ease, stroke 0.3s ease;
+    }
+
+    .spotlight-beam {
+      transition: opacity 0.4s ease;
+    }
+  </style>
+<script id="lumi-os-theme-init">
+(function() {
+  function syncBody() {
+    var dt = document.documentElement.getAttribute('data-theme');
+    if (document.body && (dt === 'dark' || dt === 'light')) {
+      document.body.classList.toggle('dark-mode', dt === 'dark');
+    }
+  }
+  function syncTheme(theme) {
+    if (theme !== 'dark' && theme !== 'light') return;
+    document.documentElement.setAttribute('data-theme', theme);
+    syncBody();
+  }
+  if (typeof MutationObserver === 'function') {
+    new MutationObserver(syncBody).observe(document.documentElement, {
+      attributes: true, attributeFilter: ['data-theme']
+    });
+  }
+  if (typeof document.addEventListener === 'function') {
+    document.addEventListener('DOMContentLoaded', syncBody);
+  }
+  try {
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq) {
+      var cur = document.documentElement.getAttribute('data-theme');
+      if (!cur) {
+        syncTheme(mq.matches ? 'dark' : 'light');
+      } else {
+        syncTheme(cur);
+      }
+      if (mq.addEventListener) {
+        mq.addEventListener('change', function(e) {
+          syncTheme(e.matches ? 'dark' : 'light');
+        });
+      }
+    }
+  } catch (e) {}
+  window.addEventListener('message', function(e) {
+    if (e.data && (e.data.type === 'set-theme' || e.data.type === 'APPLY_THEME') && e.data.theme) {
+      syncTheme(e.data.theme);
+    }
+  });
+})();
+</script>
+</head>
+<body>
+  <div class="widget-container">
+    <!-- Header -->
+    <div class="header-card">
+      <h2 class="lumi-headline-m header-title">Trypanosoma VSG Switching Mechanisms</h2>
+      <p class="lumi-body-s header-subtitle">Evasion of Host Immunity via Antigenic Variation</p>
+    </div>
+
+    <!-- Mode Selector Tabs -->
+    <div class="mode-tab-bar">
+      <button class="lumi-btn lumi-btn--small is-selected" data-mode="0" id="tab-mode-0">1. Copy &amp; Paste (Gene Conversion)</button>
+      <button class="lumi-btn lumi-btn--small" data-mode="1" id="tab-mode-1">2. Cut &amp; Swap (Telomeric Exchange)</button>
+      <button class="lumi-btn lumi-btn--small" data-mode="2" id="tab-mode-2">3. Move Spotlight (Transcriptional Switch)</button>
+    </div>
+
+    <!-- Stepper Control Deck -->
+    <div class="stepper-deck">
+      <div class="step-badges">
+        <div class="step-badge is-active" data-stage="0" id="badge-0">
+          <span>1</span> <span>Before Switch</span>
+        </div>
+        <div class="step-badge" data-stage="1" id="badge-1">
+          <span>2</span> <span>Mechanism in Action</span>
+        </div>
+        <div class="step-badge" data-stage="2" id="badge-2">
+          <span>3</span> <span>After Switch</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: var(--spacing-xs);">
+        <button class="lumi-btn lumi-btn--xsmall lumi-btn--tonal" id="btn-prev">Prev</button>
+        <button class="lumi-btn lumi-btn--xsmall lumi-btn--accent" id="btn-next">Next</button>
+      </div>
+    </div>
+
+    <!-- Diagram & Parasite Display -->
+    <div class="diagram-panel">
+      <!-- Main Genomic SVG Viewport -->
+      <div class="svg-viewport" id="genomic-zone">
+        <svg viewBox="0 0 440 255" preserveAspectRatio="xMidYMid meet" id="genomic-svg">
+          <defs>
+            <!-- Caret Marker -->
+            <marker id="lumi-caret" viewBox="0 0 10 10" refX="7.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto">
+              <path d="M 3 1.2 L 7.5 5 L 3 8.8" fill="none" stroke="var(--on-surface)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+            <marker id="caret-primary" viewBox="0 0 10 10" refX="7.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto">
+              <path d="M 3 1.2 L 7.5 5 L 3 8.8" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+
+            <!-- Spotlight Gradients -->
+            <linearGradient id="spotlight-grad-on" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="var(--primary)" stop-opacity="0.0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Group for dynamic rendering -->
+          <g id="svg-content"></g>
+        </svg>
+      </div>
+
+      <!-- Side Parasite Visualizer -->
+      <div class="parasite-viewport">
+        <div class="lumi-body-s lumi-body-m-emphasized" style="color:var(--on-surface-variant); font-size:11px; font-family:var(--ff-mono);">SURFACE COAT</div>
+        
+        <svg viewBox="0 0 120 150" preserveAspectRatio="xMidYMid meet" id="parasite-svg">
+          <!-- Parasite Cell Silhouette -->
+          <g id="parasite-group">
+            <!-- Outer Glycoprotein Coat Glow/Halo -->
+            <path id="parasite-coat-halo" d="M 60 15 C 35 40, 25 80, 50 125 C 55 138, 65 138, 70 125 C 95 80, 85 40, 60 15 Z" fill="none" stroke="#ef4444" stroke-width="10" stroke-opacity="0.3" stroke-linecap="round" stroke-linejoin="round"/>
+            
+            <!-- Glycoprotein Coat Spikes -->
+            <path id="parasite-coat-spikes" d="M 60 10 C 30 38, 20 80, 48 128 C 55 142, 65 142, 72 128 C 100 80, 90 38, 60 10 Z" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="2 3"/>
+
+            <!-- Main Parasite Cell Body -->
+            <path d="M 60 18 C 38 42, 30 80, 52 122 C 57 132, 63 132, 68 122 C 90 80, 82 42, 60 18 Z" fill="var(--surface-container)" stroke="var(--outline)" stroke-width="1.5"/>
+
+            <!-- Undulating Membrane & Flagellum -->
+            <path d="M 60 135 C 45 100, 32 60, 60 15 C 65 8, 62 2, 58 2" fill="none" stroke="var(--on-surface)" stroke-width="1.5" stroke-dasharray="3 2"/>
+
+            <!-- Nucleus -->
+            <ellipse cx="60" cy="72" rx="9" ry="14" fill="var(--surface-bright)" stroke="var(--outline)" stroke-width="1.2"/>
+            <circle cx="60" cy="72" r="4" fill="var(--on-surface-variant)"/>
+          </g>
+        </svg>
+
+        <div>
+          <div id="parasite-vsg-tag" class="lumi-body-m lumi-body-m-emphasized" style="color:var(--on-surface);">VSG-A</div>
+          <div id="parasite-coat-desc" class="lumi-body-s" style="color:var(--on-surface-variant); font-size:12px;">Active Red Coat</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Biological Summary Callout -->
+    <div class="summary-callout">
+      <div class="takeaway-title" id="takeaway-title">MECHANISM SUMMARY</div>
+      <p class="lumi-body-m takeaway-body" id="takeaway-text">Loading mechanism details...</p>
+    </div>
+  </div>
+
+  <script>
+    // State representation
+    const state = {
+      mode: 0, // 0: Copy & Paste, 1: Cut & Swap, 2: Move Spotlight
+      stage: 0 // 0: Before, 1: Action, 2: After
+    };
+
+    // Color definitions for VSGs
+    const VSG_COLORS = {
+      'VSG-A': { hex: '#ef4444', label: 'VSG-A (Red)', name: 'Red' },
+      'VSG-B': { hex: '#10b981', label: 'VSG-B (Green)', name: 'Green' },
+      'VSG-C': { hex: '#3b82f6', label: 'VSG-C (Blue)', name: 'Blue' },
+      'VSG-D': { hex: '#f59e0b', label: 'VSG-D (Yellow)', name: 'Yellow' }
+    };
+
+    // Data specifications per mode & stage
+    const MODE_DATA = [
+      // Mode 0: Duplicative Transposition (Copy & Paste)
+      {
+        title: "Duplicative Transposition (Gene Conversion)",
+        stages: [
+          {
+            badge: "Stage 1: Before Switch",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: true, gene: 'VSG-A' },
+            es2: { active: false, gene: 'VSG-C' },
+            activeVSG: 'VSG-A',
+            actionArrow: null,
+            desc: "ES1 expression site promoter is active (ON), expressing VSG-A coat. The silent storage array holds inactive copies of VSG-B, C, and D."
+          },
+          {
+            badge: "Stage 2: Duplication & Insertion",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: true, gene: 'VSG-A', replacing: 'VSG-B' },
+            es2: { active: false, gene: 'VSG-C' },
+            activeVSG: 'VSG-A',
+            actionArrow: 'copy',
+            desc: "A copy of silent VSG-B is synthesized and transposed into ES1. The existing active VSG-A gene is displaced and degraded."
+          },
+          {
+            badge: "Stage 3: New Surface Expression",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: true, gene: 'VSG-B' },
+            es2: { active: false, gene: 'VSG-C' },
+            activeVSG: 'VSG-B',
+            actionArrow: null,
+            desc: "VSG-B now occupies active ES1. The original VSG-B remains unaltered in the silent donor array, and the parasite displays a new Green surface coat."
+          }
+        ]
+      },
+      // Mode 1: Telomeric Exchange (Cut & Swap)
+      {
+        title: "Telomeric Exchange (Reciprocal Recombination)",
+        stages: [
+          {
+            badge: "Stage 1: Before Switch",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: true, gene: 'VSG-A' },
+            es2: { active: false, gene: 'VSG-C' },
+            activeVSG: 'VSG-A',
+            actionArrow: null,
+            desc: "ES1 actively expresses VSG-A (Red). Telomeric ES2 is transcriptionally silent, carrying VSG-C (Blue) at its chromosome tip."
+          },
+          {
+            badge: "Stage 2: Reciprocal Crossover",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: true, gene: 'VSG-A', swapping: true },
+            es2: { active: false, gene: 'VSG-C', swapping: true },
+            activeVSG: 'VSG-A',
+            actionArrow: 'swap',
+            desc: "DNA strand double-break and reciprocal recombination occurs between the telomeric ends of ES1 and ES2. Gene positions physically swap without copying."
+          },
+          {
+            badge: "Stage 3: Expression Swapped",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: true, gene: 'VSG-C' },
+            es2: { active: false, gene: 'VSG-A' },
+            activeVSG: 'VSG-C',
+            actionArrow: null,
+            desc: "VSG-C is now situated downstream of the active ES1 promoter (Blue coat). VSG-A has moved to the silent ES2 locus."
+          }
+        ]
+      },
+      // Mode 2: Transcriptional Switching (Move Spotlight)
+      {
+        title: "Transcriptional Switching (In Situ Switch)",
+        stages: [
+          {
+            badge: "Stage 1: Before Switch",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: true, gene: 'VSG-A' },
+            es2: { active: false, gene: 'VSG-D' },
+            activeVSG: 'VSG-A',
+            actionArrow: null,
+            desc: "ES1 promoter is ON (Spotlight active), driving expression of VSG-A. ES2 promoter is epigenetically silenced (OFF)."
+          },
+          {
+            badge: "Stage 2: Epigenetic Toggling",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: 'turning_off', gene: 'VSG-A' },
+            es2: { active: 'turning_on', gene: 'VSG-D' },
+            activeVSG: 'VSG-A',
+            actionArrow: 'toggle',
+            desc: "No DNA duplication or movement occurs! Transcriptional machinery silences the ES1 promoter while simultaneously activating ES2."
+          },
+          {
+            badge: "Stage 3: New Active Promoter",
+            array: ['VSG-B', 'VSG-C', 'VSG-D'],
+            es1: { active: false, gene: 'VSG-A' },
+            es2: { active: true, gene: 'VSG-D' },
+            activeVSG: 'VSG-D',
+            actionArrow: null,
+            desc: "ES2 is now the single active expression site, producing VSG-D coat (Yellow). ES1 is silenced."
+          }
+        ]
+      }
+    ];
+
+    function updateViz() {
+      const currentModeData = MODE_DATA[state.mode];
+      const currentStageData = currentModeData.stages[state.stage];
+
+      // 1. Update Stepper Controls & Badges
+      for (let i = 0; i < 3; i++) {
+        const badge = document.getElementById(`badge-${i}`);
+        if (i === state.stage) {
+          badge.classList.add('is-active');
+        } else {
+          badge.classList.remove('is-active');
+        }
+      }
+
+      for (let m = 0; m < 3; m++) {
+        const tab = document.getElementById(`tab-mode-${m}`);
+        if (m === state.mode) {
+          tab.classList.add('is-selected');
+          tab.classList.remove('lumi-btn--tonal');
+        } else {
+          tab.classList.remove('is-selected');
+        }
+      }
+
+      // 2. Render Main Genomic SVG
+      renderGenomicSVG(currentStageData);
+
+      // 3. Update Side Parasite Visualizer
+      updateParasite(currentStageData.activeVSG);
+
+      // 4. Update Takeaway Callout
+      document.getElementById('takeaway-title').textContent = currentStageData.badge;
+      document.getElementById('takeaway-text').textContent = currentStageData.desc;
+    }
+
+    function renderGenomicSVG(stageData) {
+      const svgGroup = document.getElementById('svg-content');
+      let html = '';
+
+      // --- Track 1: Silent Subtelomeric Storage Array ---
+      html += `<text x="16" y="22" font-family="var(--ff-sans)" font-size="11.5" font-weight="600" fill="var(--on-surface-variant)">SILENT STORAGE ARRAY (Internal Loci)</text>`;
+      html += `<line x1="16" y1="46" x2="424" y2="46" class="dna-track"/>`;
+      
+      const arrayGenes = stageData.array;
+      const startX = 60;
+      arrayGenes.forEach((geneKey, idx) => {
+        const gx = startX + idx * 85;
+        const color = VSG_COLORS[geneKey].hex;
+        
+        const isDonor = (stageData.actionArrow === 'copy' && geneKey === 'VSG-B');
+        const fillOp = isDonor ? "0.9" : "0.35";
+        const strokeW = isDonor ? "2.5" : "1.2";
+        const strokeCol = isDonor ? "var(--primary)" : color;
+
+        html += `<g transform="translate(${gx}, 32)">`;
+        html += `<rect x="0" y="0" width="60" height="28" rx="6" fill="${color}" fill-opacity="${fillOp}" stroke="${strokeCol}" stroke-width="${strokeW}" class="gene-rect"/>`;
+        html += `<text x="30" y="18" text-anchor="middle" font-family="var(--ff-sans)" font-size="12" font-weight="600" fill="var(--on-surface)">${geneKey}</text>`;
+        html += `</g>`;
+      });
+
+      // --- Track 2: Expression Site 1 (ES1) ---
+      html += `<text x="16" y="104" font-family="var(--ff-sans)" font-size="11.5" font-weight="600" fill="var(--on-surface-variant)">TELOMERIC ES1 (Active Locus)</text>`;
+      html += `<path d="M 410 120 C 425 120, 435 124, 435 130 C 435 136, 425 140, 410 140 Z" fill="var(--surface-container-high)" stroke="var(--outline)" stroke-width="1.2"/>`;
+      html += `<line x1="16" y1="130" x2="410" y2="130" class="dna-track"/>`;
+
+      const es1Active = stageData.es1.active === true || stageData.es1.active === 'turning_off';
+      const es1SpotlightOp = stageData.es1.active === true ? "1" : (stageData.es1.active === 'turning_off' ? "0.4" : "0");
+      const es1PromoterCol = es1Active ? "var(--primary)" : "var(--outline)";
+
+      if (parseFloat(es1SpotlightOp) > 0) {
+        html += `<polygon points="55,92 35,130 95,130" fill="url(#spotlight-grad-on)" opacity="${es1SpotlightOp}" class="spotlight-beam"/>`;
+      }
+
+      html += `<g transform="translate(55, 112)">`;
+      html += `<path d="M 0 18 L 0 0 L 16 0 L 16 10 L 0 10" fill="${es1Active ? 'var(--accent-container)' : 'var(--surface-dim)'}" stroke="${es1PromoterCol}" stroke-width="1.5" class="promoter-flag"/>`;
+      html += `<text x="8" y="8" text-anchor="middle" font-family="var(--ff-mono)" font-size="10" font-weight="bold" fill="${es1PromoterCol}">P1</text>`;
+      html += `</g>`;
+
+      const es1GeneKey = stageData.es1.gene;
+      const es1Color = VSG_COLORS[es1GeneKey].hex;
+      html += `<g transform="translate(240, 116)">`;
+      html += `<rect x="0" y="0" width="75" height="28" rx="6" fill="${es1Color}" fill-opacity="0.85" stroke="var(--on-surface)" stroke-width="1.5" class="gene-rect"/>`;
+      html += `<text x="37" y="18" text-anchor="middle" font-family="var(--ff-sans)" font-size="12" font-weight="600" fill="#ffffff">${es1GeneKey}</text>`;
+      html += `</g>`;
+
+      // --- Track 3: Expression Site 2 (ES2) ---
+      html += `<text x="16" y="186" font-family="var(--ff-sans)" font-size="11.5" font-weight="600" fill="var(--on-surface-variant)">TELOMERIC ES2 (Silent Locus)</text>`;
+      html += `<path d="M 410 202 C 425 202, 435 206, 435 212 C 435 218, 425 222, 410 222 Z" fill="var(--surface-container-high)" stroke="var(--outline)" stroke-width="1.2"/>`;
+      html += `<line x1="16" y1="212" x2="410" y2="212" class="dna-track"/>`;
+
+      const es2Active = stageData.es2.active === true || stageData.es2.active === 'turning_on';
+      const es2SpotlightOp = stageData.es2.active === true ? "1" : (stageData.es2.active === 'turning_on' ? "0.6" : "0");
+      const es2PromoterCol = es2Active ? "var(--primary)" : "var(--outline)";
+
+      if (parseFloat(es2SpotlightOp) > 0) {
+        html += `<polygon points="55,174 35,212 95,212" fill="url(#spotlight-grad-on)" opacity="${es2SpotlightOp}" class="spotlight-beam"/>`;
+      }
+
+      html += `<g transform="translate(55, 194)">`;
+      html += `<path d="M 0 18 L 0 0 L 16 0 L 16 10 L 0 10" fill="${es2Active ? 'var(--accent-container)' : 'var(--surface-dim)'}" stroke="${es2PromoterCol}" stroke-width="1.5" class="promoter-flag"/>`;
+      html += `<text x="8" y="8" text-anchor="middle" font-family="var(--ff-mono)" font-size="10" font-weight="bold" fill="${es2PromoterCol}">P2</text>`;
+      html += `</g>`;
+
+      const es2GeneKey = stageData.es2.gene;
+      const es2Color = VSG_COLORS[es2GeneKey].hex;
+      html += `<g transform="translate(240, 198)">`;
+      html += `<rect x="0" y="0" width="75" height="28" rx="6" fill="${es2Color}" fill-opacity="${es2Active ? '0.85' : '0.4'}" stroke="${es2Active ? 'var(--on-surface)' : es2Color}" stroke-width="1.5" class="gene-rect"/>`;
+      html += `<text x="37" y="18" text-anchor="middle" font-family="var(--ff-sans)" font-size="12" font-weight="600" fill="${es2Active ? '#ffffff' : 'var(--on-surface)'}">${es2GeneKey}</text>`;
+      html += `</g>`;
+
+      // --- Action Overlay Animations / Arrows ---
+      if (stageData.actionArrow === 'copy') {
+        html += `<path d="M 90 60 Q 160 102, 230 130" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#caret-primary)"/>`;
+        html += `<rect x="120" y="78" width="76" height="18" rx="9" fill="var(--surface-bright)" stroke="var(--primary)" stroke-width="1"/>`;
+        html += `<text x="158" y="91" text-anchor="middle" font-family="var(--ff-mono)" font-size="11" font-weight="600" fill="var(--primary)">DUPLICATE</text>`;
+      } else if (stageData.actionArrow === 'swap') {
+        html += `<path d="M 270 146 Q 295 165, 270 194" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#caret-primary)"/>`;
+        html += `<path d="M 285 194 Q 260 165, 285 146" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#caret-primary)"/>`;
+        html += `<rect x="300" y="157" width="60" height="18" rx="9" fill="var(--surface-bright)" stroke="var(--primary)" stroke-width="1"/>`;
+        html += `<text x="330" y="170" text-anchor="middle" font-family="var(--ff-mono)" font-size="11" font-weight="600" fill="var(--primary)">SWAP</text>`;
+      } else if (stageData.actionArrow === 'toggle') {
+        html += `<path d="M 48 130 Q 28 163, 48 194" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#caret-primary)"/>`;
+        html += `<rect x="6" y="153" width="64" height="18" rx="9" fill="var(--surface-bright)" stroke="var(--primary)" stroke-width="1"/>`;
+        html += `<text x="38" y="166" text-anchor="middle" font-family="var(--ff-mono)" font-size="10.5" font-weight="600" fill="var(--primary)">OFF → ON</text>`;
+      }
+
+      if (svgGroup) svgGroup.innerHTML = html;
+    }
+
+    function updateParasite(vsgKey) {
+      const vsgInfo = VSG_COLORS[vsgKey];
+      const halo = document.getElementById('parasite-coat-halo');
+      const spikes = document.getElementById('parasite-coat-spikes');
+      const tag = document.getElementById('parasite-vsg-tag');
+      const desc = document.getElementById('parasite-coat-desc');
+
+      halo.setAttribute('stroke', vsgInfo.hex);
+      spikes.setAttribute('stroke', vsgInfo.hex);
+
+      if (tag) tag.textContent = vsgKey;
+      tag.style.color = vsgInfo.hex;
+      if (desc) desc.textContent = `Expressing ${vsgInfo.name} Coat`;
+    }
+
+    // Event Listeners
+    document.querySelectorAll('.mode-tab-bar button').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        state.mode = parseInt(e.currentTarget.dataset.mode);
+        state.stage = 0;
+        updateViz();
+      });
+    });
+
+    document.querySelectorAll('.step-badge').forEach(badge => {
+      badge.addEventListener('click', (e) => {
+        state.stage = parseInt(e.currentTarget.dataset.stage);
+        updateViz();
+      });
+    });
+
+    document.getElementById('btn-prev').addEventListener('click', () => {
+      if (state.stage > 0) {
+        state.stage--;
+        updateViz();
+      }
+    });
+
+    document.getElementById('btn-next').addEventListener('click', () => {
+      if (state.stage < 2) {
+        state.stage++;
+        updateViz();
+      }
+    });
+
+    // Initial render
+    updateViz();
+
+    // Dynamic Theme Sync & Auto-Resize
+    const applyTheme = t => {
+      document.documentElement.setAttribute('data-theme', t);
+      if (typeof updateViz === 'function') updateViz();
+    };
+    if (!document.documentElement.hasAttribute('data-theme') && window.matchMedia?.('(prefers-color-scheme: dark)').matches) applyTheme('dark');
+    window.addEventListener('message', e => { if (e.data?.type === 'set-theme' || e.data?.type === 'APPLY_THEME') applyTheme(e.data.theme); });
+    
+    (function autoResize() {
+      function notifyHeight() {
+        const c = document.querySelector('.widget-container') || document.body;
+        if (!c) return;
+        const h = Math.ceil(Math.max(c.getBoundingClientRect().bottom, c.scrollHeight));
+        window.parent.postMessage({type: 'widget-resize', height: h}, '*');
+      }
+      window.addEventListener('load', () => setTimeout(notifyHeight, 120));
+      new ResizeObserver(() => notifyHeight()).observe(document.querySelector('.widget-container') || document.body);
+    })();
+  </script>
+</body>
+</html>
